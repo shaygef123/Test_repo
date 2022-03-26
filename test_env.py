@@ -4,8 +4,10 @@ import boto3
 
 key = os.getenv("KEY_FOR_PY")
 val = os.getenv("VALUE_FOR_PY")
+ACCESS_KEY = os.getenv("ACCESS_KEY")
+SECRET_KEY = os.getenv("SECRET_ACCESS_KEY")
 
-s3 = boto3.resource('s3')
+s3 = boto3.resource('s3',aws_access_key_id=ACCESS_KEY,aws_secret_access_key=SECRET_KEY,)
 obj = s3.Object('shaygefbucket','data.json')
 
 app = Flask(__name__)
